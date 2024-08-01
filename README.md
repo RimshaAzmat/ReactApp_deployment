@@ -13,19 +13,27 @@ This guide provides instructions on how to deploy a React application to an AWS 
 Through putty or terminal
 ## Step 2: Install Node.js, Yarn, and Nginx
 sudo apt update
+
 sudo apt install -y nodejs npm nginx
+
 npm install -g yarn
 ## Step 3: Clone Your React App from GitHub
 git clone https://github.com/your-username/your-react-app.git
+
 cd your-react-app
 ## Step 4: Install Dependencies and Build the React App
 yarn install
+
 yarn build
+
 The yarn build command creates a build directory with a production-ready version of your React app.
 ## Step 5: Configure Nginx
 Create an Nginx configuration file for your React app:
+
 sudo nano /etc/nginx/sites-available/react-app
+
 Add the following configuration:
+
 
 server {
     listen 80;
@@ -60,8 +68,11 @@ sudo ln -s /etc/nginx/sites-available/react-app /etc/nginx/sites-enabled/
 
 ## Step 6: Test and Restart Nginx
 Test the Nginx configuration to ensure there are no syntax errors:
+
 sudo nginx -t
+
 If the test is successful, restart Nginx to apply the changes:
+
 sudo systemctl restart nginx
 ## Step 7: Verify the Deployment
 Visit your EC2 instance’s public IP address in a web browser. You should see your React app running!
